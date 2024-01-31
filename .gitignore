@@ -1,0 +1,10 @@
+*.log
+*.xml
+*.json
+*.iml
+*.ninja
+*.cmake
+*.bin
+*/cmake-build-debug/
+*.idea
+*.pyc

@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 class Matrix:
     def __init__(self, elem, par=0):
         if isinstance(elem, tuple):
@@ -35,6 +32,9 @@ class Matrix:
     def __getitem__(self, key):
         return self.matrix[key]
 
+    def __setitem__(self, key, value):
+        self.matrix[key] = value
+
     def __str__(self):
         msg = ""
         row, col = self.size()
@@ -47,28 +47,3 @@ class Matrix:
 
     def size(self):
         return len(self.matrix), len(self.matrix[0])
-
-
-def transpose(matrix):
-    rows, cols = matrix.size()
-    result = Matrix((cols, rows))
-    for row in range(rows):
-        for col in range(cols):
-            result[col][row] = matrix[row][col]
-    return result
-
-
-if __name__ == "__main__":
-    # Basic Matrix
-    m1 = Matrix([[1, 0, 2], [-1, 3, 1]])
-
-    # Matrix Transpose
-    print(transpose(m1))
-
-    # Adding matrices
-    m2 = Matrix((2, 3), 1)
-    print(m1 + m2)
-
-    # Multiplying matricies
-    m3 = Matrix([[3, 1], [2, 1], [1, 0]])
-    print(m1 * m3)
